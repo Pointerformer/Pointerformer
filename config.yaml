@@ -1,0 +1,45 @@
+graph_size: 200
+node_dim: 2
+encoder_type: revmha # mha # revmha
+decoder_type: DecoderForLarge # DecoderForLarge # Decoder
+decoder_dim: 128
+embedding_dim: 128
+n_layers: 6
+group_size: 200
+add_init_projection: true # only for mha_encoder
+n_heads: 8 # only for mha_encoder
+tanh_clipping: 50
+total_epoch: 500
+epoch_size: 100000
+val_size: 10000
+train_batch_size: 64
+val_batch_size: 128
+learning_rate: 1e-4
+weight_decay: 1e-6
+data_distribution: uniform # or normals
+seed: 1234
+gpus: [0]
+precision: 16
+val_type: x8Aug_nTraj
+default_run_name: TSP-N${graph_size}G${group_size}-${encoder_type}${n_layers}E${embedding_dim}KD-s${seed}-${now:%m%dT%H%M}
+
+wandb: false
+wandb_project: tsp_eAM
+tensorboard: true
+
+run_name: null
+save_dir: ./outputs/
+val_data_path: null
+
+data_augment: true
+multi_pointer: 8
+divide_std: true
+add_more_query: true
+multi_pointer_level: 1
+
+load_path: null
+load_checkpoint_path: null
+
+real_data: true
+integer: false
+sample: false
