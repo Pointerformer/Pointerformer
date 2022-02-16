@@ -1,11 +1,11 @@
-graph_size: 200
+graph_size: 100
 node_dim: 2
-encoder_type: revmha # mha # revmha
-decoder_type: DecoderForLarge # DecoderForLarge # Decoder
+encoder_type: revmha #mha
+decoder_type: DecoderForLarge #Decoder
 decoder_dim: 128
 embedding_dim: 128
 n_layers: 6
-group_size: 200
+group_size: 100
 add_init_projection: true # only for mha_encoder
 n_heads: 8 # only for mha_encoder
 tanh_clipping: 50
@@ -29,7 +29,7 @@ tensorboard: true
 
 run_name: null
 save_dir: ./outputs/
-val_data_path: null
+val_data_path: ./data/tsp${graph_size}_test_concorde.txt
 
 data_augment: true
 multi_pointer: 8
@@ -38,8 +38,8 @@ add_more_query: true
 multi_pointer_level: 1
 
 load_path: null
-load_checkpoint_path: null
+load_checkpoint_path: ./result_ckpt/model100.ckpt
 
-real_data: true
+real_data: false
 integer: false
 sample: false
